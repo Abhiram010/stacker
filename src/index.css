@@ -11,3 +11,115 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 0 auto;
+  width: 80%;
+  padding: 0;
+  border-radius: 0rem;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: min-content;
+  margin: 15px auto;
+}
+
+.titleTag {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0;
+
+}
+
+
+
+.delete, .edit {
+
+  margin: 0 1rem 0 0;
+
+}
+
+.titleInfo {
+  margin: 5px;
+}
+
+.AddNew {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  z-index: 5;
+}
+
+.closeButton {
+  float: right;
+  background: none;
+  border: none;
+}
+
+.fa-xmark {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.fa-xmark:hover {
+  color:#84d56e;
+  animation: rotate 1s ;
+}
+
+.form {
+  flex-direction: column;
+  padding: 15px;
+}
+
+.form input {
+  margin: 10px 0;
+  background: none;
+  outline: none;
+  border: solid 1px #ccc;
+  width: 100%;
+  color: #fff;
+}
+
+.form input:focus {
+  border: solid 1px #84d56e;
+}
+
+.form label {
+  margin-top: 10px;
+}
+
+.form button {
+  background: none;
+
+  border: solid 1px #84d56e;
+  color: rgb(255, 255, 255);
+  padding: 5px 8px;
+  border-radius: 5px;
+
+}
+
+.form button:hover {
+  background-color: #84d56e;
+  border: none;
+  color: rgb(48, 47, 47);
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  } 
+  100% {
+    transform: rotate(90deg);
+  }
+}
