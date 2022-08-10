@@ -1,7 +1,5 @@
 import React from 'react';
-import Video from './Video';
-import axios from 'axios'
-import Buttons from './Buttons';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 import FormModal from './FormModal';
 import NewCard from './NewCard';
@@ -51,12 +49,16 @@ const Cards = () => {
     let [name, setName] = useState(null);
     let [category, setCategory] = useState(null);
     let [videoLink, setVideoLink] = useState(null);
-
-    useEffect(() => {
+    
+    const apiCall = () => {
         axios.get('http://localhost:3001/Data').then(response => {
             setData(response.data);
-        })
-    })
+        }).catch(error => { console.log(error) });
+    }
+
+    useEffect(() => {
+        apiCall();
+    }, []);
 
 
     function deleteCard(id) {
@@ -81,7 +83,7 @@ const Cards = () => {
             };
 
             axios.post(url, formData
-            ).then((response) => { })
+            ).then((response) => { console.log(response) })
                 .catch((error) => {
                     console.log(error);
                 })
@@ -97,9 +99,9 @@ if (Data) {
 
         <div className='cards flex'>
             <NewCard openModalForm={() => openModal(-1)} onclicked={submitTheForm} />
-            {Data.map((card, key) => {
+            {Data.map((card) => {
                 return (
-                    <Card key={key} id={card.id} videoLink={card.videoLink}name={card.name} btnClickEdit ={() => openModal(card.id)} btnClickDelete ={() => deleteCard(card.id)} />
+                    <Card key={card.id} id={card.id} videoLink={card.videoLink} name={card.name} category={card.category} btnClickEdit ={() => openModal(card.id)} btnClickDelete ={() => deleteCard(card.id)} />
                 );
             })}
         </div>

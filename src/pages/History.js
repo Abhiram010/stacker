@@ -1,19 +1,28 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const History = () => {
   let [watchData, setwatchData] = useState([]);
-  axios.get('http://localhost:3001/History').then(response => { 
-    setwatchData(response.data);
-  }).catch(error => { console.log(error) })
+  useEffect(
+    () => {
+      axios.get('http://localhost:3001/History').then(response => {
+        setwatchData(response.data);
+      }).catch(error => { console.log(error) })
+    },[]
+  )
+ 
   let [wholeData, setwholeData] = useState([]);
-  console.log(watchData[0]);
-  axios.get(`http://localhost:3001/Data/`).then(response => { console.log(response.data); setwholeData(response.data) }).catch(error => { console.log(error) })
+
+  axios.get(`http://localhost:3001/Data/`).then(response => {  setwholeData(response.data) }).catch(error => { console.log(error) })
   return (
     <div className='history flex'>
-      {wholeData}
-      
+      {watchData.map((card, key) => {
+        return (
+          <h1>Hello {card.VideoId}</h1>
+        );
+      })}
     </div>
   )
 }

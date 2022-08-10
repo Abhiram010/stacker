@@ -11,8 +11,8 @@ const FormModal = ({ openModal, modalIsOpen, afterOpenModal, closeModal, submitT
     useEffect(() => {
         axios.get('http://localhost:3001/Data').then(response => {
             setFormData(response.data);
-        })
-    })
+        },[]);
+    },[]);
     let our = setTempID;
     
  

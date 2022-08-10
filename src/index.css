@@ -34,10 +34,10 @@ code {
   font-size: 1.2rem;
   font-weight: bold;
   display: flex;
-  align-items: space-between;
   justify-content: space-between;
   width: 100%;
   padding: 1rem 0;
+  align-items: center;
 
 }
 
@@ -74,8 +74,8 @@ code {
 }
 
 .fa-xmark:hover {
-  color:#84d56e;
-  animation: rotate 1s ;
+  color: #84d56e;
+  animation: rotate 1s;
 }
 
 .form {
@@ -115,10 +115,22 @@ code {
   border: none;
   color: rgb(48, 47, 47);
 }
+
+.textInfo {
+  margin:0 10px;
+}
+.category {
+  width: min-content;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
-  } 
+  }
+
   100% {
     transform: rotate(90deg);
   }
