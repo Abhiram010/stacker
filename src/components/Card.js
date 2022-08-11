@@ -4,7 +4,7 @@ import Video from './Video'
 import {Link} from 'react-router-dom' 
 
 const Card = ({ id, name, videoLink, category, btnClickDelete }) => {
-    
+  
         let url = `./Editcard${id}`;
     
     return (
