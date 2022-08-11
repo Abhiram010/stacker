@@ -6,16 +6,21 @@ import Video from '../components/Video';
 import Navabr from '../components/Navabr';
 
 const History = () => {
+  let config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    }
+  }
   let [watchData, setwatchData] = useState([]);
   useEffect(
     () => {
-      axios.get('http://localhost:3001/History').then(response => {
+      axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/History',config).then(response => {
         setwatchData(response.data);
       }).catch(error => { console.log(error) })
     }, [])
   useEffect(
     () => {
-      axios.get('http://localhost:3001/Data/').then(response => {
+      axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/Data/',config).then(response => {
         setwholeData(response.data);
       }).catch(error => { console.log(error) })
     }, [])
