@@ -13,6 +13,11 @@ import withReactContent from 'sweetalert2-react-content'
 
 const EditCard = ({ onSubmitDo }) => {
   
+  let config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    }
+  }
 
   const MySwal = withReactContent(Swal)
 
@@ -26,9 +31,9 @@ const EditCard = ({ onSubmitDo }) => {
   let [VideoId, setVideoId] = useState(null);
   // api call to get single card
   const apiCall = (id) => {
-    let url = `http://localhost:3001/Data/${id}`;
+    let url = `https://api.npoint.io/baf4bcf9eb8946410e5e/Data/${id}`;
     
-    axios.get(url).then(
+    axios.get(url, config).then(
       response => {
        
         setSingle(response.data);
@@ -39,9 +44,9 @@ const EditCard = ({ onSubmitDo }) => {
     ).catch(error => { console.log(error) });
   }
   function allDataCall() {
-    let url = `http://localhost:3001/Data/`;
+    let url = `https://api.npoint.io/baf4bcf9eb8946410e5e/Data/`;
 
-    axios.get(url).then(
+    axios.get(url,config).then(
       response => {
 
         setallData(response.data);
@@ -140,14 +145,14 @@ const EditCard = ({ onSubmitDo }) => {
   };
   function onSubmitDo(event) {
     event.preventDefault();
-    let url = `http://localhost:3001/Data/${id}`;
+    let url = `https://api.npoint.io/baf4bcf9eb8946410e5e/Data/${id}`;
     let formData = {
       "name":updateName,
       "category":updateCategory,
       "videoLink":updateVideoLink,
     };
 
-    axios.put(url, formData
+    axios.put(url, formData,config
     ).then((response) => { console.log(response) })
       .catch((error) => {
         console.log(error);
