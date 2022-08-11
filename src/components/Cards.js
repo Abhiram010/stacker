@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 import FormModal from './FormModal';
 import NewCard from './NewCard';
 import Card from './Card';
+import Navabr from './Navabr'
 const Cards = () => {
-    
+
+        
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     const customStyles = {
@@ -15,8 +17,7 @@ const Cards = () => {
             right: 'auto',
             bottom: 'auto',
             transform: 'translate(-50%, -50%)',
-            margin: '15px',
-            padding: '25px',
+            padding: '8px',
             backgroundColor: 'rgb(62, 62, 62)',
         },
     };
@@ -38,7 +39,7 @@ const Cards = () => {
     }
 
 
-
+   
 
 
     let content = null;
@@ -58,15 +59,14 @@ const Cards = () => {
 
     useEffect(() => {
         apiCall();
-    }, []);
+    }, submitTheForm );
 
 
     function deleteCard(id) {
 
-        axios.delete(`http://localhost:3001/Data/${id}`)
-            .then(response => {
-                setData.filter(item => item.id !== id);
-            })
+        axios.delete(`http://localhost:3001/Data/${id}`).then(response => {
+            apiCall();
+        }).catch(error => { console.log(error) });
           
     }
 
@@ -83,34 +83,68 @@ const Cards = () => {
             };
 
             axios.post(url, formData
-            ).then((response) => { console.log(response) })
+            ).then((response) => {
+                
+            })
                 .catch((error) => {
                     console.log(error);
                 })
-    
+                apiCall();
        
         closeModal();
+        
     }
+    let editCard = (id) => {
+    } 
+   
+    function updateCards(linkName) {
+        
+        // get axios request and filter the data using linkName
 
-
+        axios.get('http://localhost:3001/Data')
+            .then(response => {
+                let v;
+                v = (response.data).filter(item => item.category == linkName)
+                console.log(v)
+                setData(v);
+            }).catch(error => { console.log(error) });
+        
+    }
+    function allCards(BrandName) {
+        
+        axios.get('http://localhost:3001/Data')
+            .then(response => {
+                setData(response.data);
+            }).catch(error => { console.log(error) });
+    }
 if (Data) {
     content = <>
         <FormModal openModal={openModal} modalIsOpen={modalIsOpen} afterOpenModal={afterOpenModal} closeModal={closeModal} submitTheForm={submitTheForm} setID={setID} setName={setName} setVideoLink={setVideoLink} setCategory={setCategory} length={Data.length} Data={Data} customStyles={customStyles} setTempID={Tempid} />
+        <div className='container'>
 
-        <div className='cards flex'>
+       
+        <div className='row '>
+
+        <div className='cards '>
             <NewCard openModalForm={() => openModal(-1)} onclicked={submitTheForm} />
             {Data.map((card) => {
                 return (
-                    <Card key={card.id} id={card.id} videoLink={card.videoLink} name={card.name} category={card.category} btnClickEdit ={() => openModal(card.id)} btnClickDelete ={() => deleteCard(card.id)} />
+                    <Card key={card.id} id={card.id} videoLink={card.videoLink} name={card.name} category={card.category} btnClickEdit={() => editCard(card.id)} btnClickDelete ={() => deleteCard(card.id)} />
                 );
             })}
+            </div>
+            </div>
         </div>
 
     </>;
 }
     
     return (
-        content
+        <>
+            <Navabr onClickUpdate={(linkName) => updateCards(linkName)} BrandName={"Stacker"} onClickAll={allCards} />
+            {content}
+            
+        </>
     )
 }
 

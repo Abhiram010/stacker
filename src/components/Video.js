@@ -1,8 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import { useState, useEffect } from 'react';
 
-const video = ({ srcLink, id }) => {
+const Video = ({ srcLink, id,width,height }) => {
  
   function history(id) {
 
@@ -19,10 +18,18 @@ const video = ({ srcLink, id }) => {
     
   }
   return (
-    <video width="375" height="250" controls onPlay={()=>history(id) } >
-          <source src={srcLink} type="video/mp4" />
+    <video width={width} height={height} controls onPlay={()=>history(id) } >
+      <source src={srcLink} type="video/mp4" />
+      
+      <source src={srcLink  } type="video/ogg" />
+
       </video>
   )
 }
 
-export default video
+Video.defaultProps = {
+  width: 375,
+  height: 250,
+}
+
+export default Video

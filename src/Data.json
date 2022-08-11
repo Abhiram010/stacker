@@ -1,51 +1,47 @@
 {
   "Data": [
     {
-      "id": 0,
-      "name": "Reading video",
-      "category": "reading",
-      "videoLink": "https://www.w3schools.com/html/movie.mp4"
+      "name": "Css classs",
+      "category": "Life",
+      "videoLink": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTML-canvas-guide/art/canvaspopup.m4v",
+      "id": 0
     },
     {
       "id": 1,
-      "name": "wrtting video",
-      "category": "writing",
-      "videoLink": "https://www.w3schools.com/html/movie.mp4"
+      "name": "Some Random video 2",
+      "category": "Life",
+      "videoLink": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTML-canvas-guide/art/canvaspopup.m4v"
     },
     {
       "id": 2,
-      "name": "listening  video",
-      "category": "listening",
-      "videoLink": "https://www.w3schools.com/html/movie.mp4"
+      "name": "Some Random video 3",
+      "category": "Life",
+      "videoLink": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTML-canvas-guide/art/canvaspopup.m4v"
     },
     {
       "id": 3,
-      "name": "New video",
-      "category": "New",
-      "videoLink": "https://www.w3schools.com/html/movie.mp4"
+      "name": "Demo of CSS transitions",
+      "category": "Life",
+      "videoLink": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTML-canvas-guide/art/canvaspopup.m4v"
     },
     {
       "id": 4,
-      "name": "Amazing video",
-      "category": "Amazing",
-      "videoLink": "https://www.w3schools.com/html/movie.mp4"
+      "name": "Life is Beautiful",
+      "category": "Life",
+      "videoLink": "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      "id": 5,
+      "name": "Deployment Test",
+      "category": "Testing",
+      "videoLink": "https://www.w3schools.com/tags/movie.mp4"
     }
   ],
   "History": [
     {
-      "VideoId": 0,
-      "time": "8/10/2022, 12:55:20 PM",
-      "id": 1
-    },
-    {
-      "VideoId": 0,
-      "time": "8/10/2022, 1:00:32 PM",
-      "id": 2
-    },
-    {
       "VideoId": 1,
-      "time": "8/10/2022, 1:06:33 PM",
-      "id": 3
+      "time": "8/11/2022, 8:45:10 AM",
+      "id": 1
     }
   ]
 }

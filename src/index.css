@@ -19,15 +19,26 @@ code {
   flex-wrap: wrap;
 }
 
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  /* border: solid; */
+}
+
 .card {
-  margin: 0 auto;
+  margin: 15px;
   width: 80%;
-  padding: 0;
+  min-width: 25rem;
+  padding: 10px;
   border-radius: 0rem;
-  background-color: #fff;
+  border: none;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   width: min-content;
   margin: 15px auto;
+  /* border: solid 1px #e6e6e6; */
+
 }
 
 .titleTag {
@@ -51,15 +62,25 @@ code {
 
 .titleInfo {
   margin: 5px;
+
 }
 
 .AddNew {
-  background-color: #fff;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #212529, #212427);
+  box-shadow: 5px 5px 10px #3a3a3a,
+    -5px -5px 10px #5a5a5a;
+  padding: 20px 25px;
+  border: none;
   position: fixed;
   bottom: 5%;
   right: 3%;
   z-index: 5;
+}
+
+.AddNew i {
+  font-size: 1.5rem;
+  color: #f5f5ff;
 }
 
 .closeButton {
@@ -81,6 +102,7 @@ code {
 .form {
   flex-direction: column;
   padding: 15px;
+  width: 100%;
 }
 
 .form input {
@@ -117,13 +139,28 @@ code {
 }
 
 .textInfo {
-  margin:0 10px;
+  margin: 0 10px;
+  width: 100%;
+}
+.options{
+  float: right;
+}
+.options button{
+  margin: 8px;
 }
 .category {
   width: min-content;
   font-style: italic;
   font-size: 1rem;
   font-weight: 300;
+}
+
+.formcard {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  justify-content: space-evenly;
+  margin: 15px auto;
+  /* border: solid  #84d56e; */
 }
 
 @keyframes rotate {
@@ -134,4 +171,95 @@ code {
   100% {
     transform: rotate(90deg);
   }
+}
+
+.history {
+  padding: 25px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  border: solid 1px #2f2f2f;
+}
+
+.history h5, h6 {
+  margin: 0 15px;
+}
+
+video {
+  max-width: 100%;
+  max-height: auto;
+}
+
+.historyIcons {
+  font-size: 1rem;
+  color: #84d56e;
+}
+
+.historyContainer {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 3rem;
+}
+
+.videoTextInfo h3 {
+  font-weight: 400;
+  /* font-size: 1.2rem; */
+  margin: 15px;
+}
+
+.sideHeading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  /* margin: 15px; */
+}
+
+.videoTextInfo h6 .sideHeading {
+  font-size: 0.8rem;
+
+}
+
+.myButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #f5f5ff;
+}
+
+.myPill {
+
+  border: none;
+  margin: 16px 15px 10px 15px;
+  border-radius: 36px;
+  padding: 4px 20px;
+  background: linear-gradient(145deg, #4f4f4f, #434343);
+  box-shadow: 1px 1px 2px #3f3f3f,
+    -1px -1px 2px #555555;
+  color: #f5f5ff;
+}
+
+nav {
+  /* border-bottom: solid 1px #000000; */
+  /* border-radius: 29px; */
+  background: linear-gradient(145deg, #212529, #212427);
+  box-shadow: 5px 5px 10px #3a3a3a,
+    -5px -5px 10px #5a5a5a;
+}
+
+.logo {
+  width: 2.5rem;
+  height: auto;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.logoPart {
+  justify-content: center;
+  align-items: center;
+}
+
+.myHistoryButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #f5f5ff;
 }
