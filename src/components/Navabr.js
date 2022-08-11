@@ -6,12 +6,17 @@ import axios from 'axios';
 import Logo from '../Assests/logo.png';
 
 const Navabr = ({ onClickUpdate, onClickAll, BrandName }) => {
+    let config = {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        }
+    }
     let check = [];
     let [allData, setallData] = useState(null);
     function allDataCall() {
-        let url = `http://localhost:3001/Data/`;
+        let url = `https://api.npoint.io/baf4bcf9eb8946410e5e/Data/`;
 
-        axios.get(url).then(
+        axios.get(url,config).then(
             response => {
 
                 setallData(response.data);
