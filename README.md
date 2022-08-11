@@ -1,8 +1,8 @@
 ## Backend 
 Json server is used make sure that server is running and can be accessed in src folder. and Port must be 3001.
 ### Json server Commands
-cd src
-npm json-server --watch Data.json --port 3001
+cd src <br />
+npx json-server --watch Data.json --port 3001
 
 # Getting Started with Create React App
 
