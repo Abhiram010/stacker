@@ -5,16 +5,11 @@ import { useEffect,useState } from 'react';
 
 
 
-const FormModal = ({ openModal, modalIsOpen, afterOpenModal, closeModal, submitTheForm, setID, setName, setVideoLink, length, customStyles, setCategory, Data, setTempID, edit }) => {
-    let config = {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        }
-    }
+const FormModal = ({ openModal, modalIsOpen, afterOpenModal, closeModal, submitTheForm, setID, setName, setVideoLink, length, customStyles, setCategory, Data, setTempID,edit }) => {
     let [FormData, setFormData] = useState([])
     
     useEffect(() => {
-        axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/Data',config).then(response => {
+        axios.get('https://stacker-backend010.herokuapp.com/Data').then(response => {
             setFormData(response.data);
         },[]);
     },[]);
