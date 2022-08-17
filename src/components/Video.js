@@ -7,28 +7,28 @@ const Video = ({ srcLink, id, width, height }) => {
       "Access-Control-Allow-Origin": "*",
     }
   }
- 
+
   function history(id) {
 
-    axios.get(`https://api.npoint.io/baf4bcf9eb8946410e5e/Data/${id}`,config).then(response => { 
-      axios.post('https://api.npoint.io/baf4bcf9eb8946410e5e/History',
+    axios.get(`https://stacker-backend010.herokuapp.com/Data/${id}`, config).then(response => {
+      axios.post('https://stacker-backend010.herokuapp.com/History',
         {
           "VideoId": response.data.id,
           "time": new Date().toLocaleString()
-        },config
+        }, config
       ).then(response => { console.log("posted", response) }).catch(error => { console.log(error) })
 
-     }).catch(error => { console.log(error) })
-    
-    
+    }).catch(error => { console.log(error) })
+
+
   }
   return (
-    <video width={width} height={height} controls onPlay={()=>history(id) } >
+    <video width={width} height={height} controls onPlay={() => history(id)} >
       <source src={srcLink} type="video/mp4" />
-      
-      <source src={srcLink  } type="video/ogg" />
 
-      </video>
+      <source src={srcLink} type="video/ogg" />
+
+    </video>
   )
 }
 
