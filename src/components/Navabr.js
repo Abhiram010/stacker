@@ -14,7 +14,7 @@ const Navabr = ({ onClickUpdate, onClickAll, BrandName }) => {
     let check = [];
     let [allData, setallData] = useState(null);
     function allDataCall() {
-        let url = `https://api.npoint.io/baf4bcf9eb8946410e5e/Data/`;
+let url = `https://stacker-backend010.herokuapp.com/Data`;
 
         axios.get(url,config).then(
             response => {
