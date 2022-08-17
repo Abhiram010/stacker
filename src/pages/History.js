@@ -14,62 +14,62 @@ const History = () => {
   let [watchData, setwatchData] = useState([]);
   useEffect(
     () => {
-      axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/History',config).then(response => {
+      axios.get('https://stacker-backend010.herokuapp.com/History', config).then(response => {
         setwatchData(response.data);
       }).catch(error => { console.log(error) })
     }, [])
   useEffect(
     () => {
-      axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/Data/',config).then(response => {
+      axios.get('https://stacker-backend010.herokuapp.com/Data/', config).then(response => {
         setwholeData(response.data);
       }).catch(error => { console.log(error) })
     }, [])
- 
+
   let [wholeData, setwholeData] = useState([]);
   console.log(watchData);
   return (
     <>
       <Navabr BrandName={"Stacker"} />
-    <div className='container historyContainer'>
-      <h1 className='text-center text-success my-4'>History</h1>
-      {watchData.map((card, key) => {
-        return (
-          <div className='bg-dark' key={key}>
-            {
-              wholeData.map((item, key) => {
+      <div className='container historyContainer'>
+        <h1 className='text-center text-success my-4'>History</h1>
+        {watchData.map((card, key) => {
+          return (
+            <div className='bg-dark' key={key}>
+              {
+                wholeData.map((item, key) => {
 
-                if (card.VideoId === item.id) {
-                  return (
-                    <>
-                     
-                      <div key={item.id} className="flex history">
-                        {console.log(item.videoLink)}
-                        
-                        <Video srcLink={item.videoLink} id={card.id} width={350} height={200} />
-                        <span className='videoTextInfo'>
-                        
-                          <h3><span className='sideHeading'>NAME:</span> {item.name}</h3>
+                  if (card.VideoId === item.id) {
+                    return (
+                      <>
 
-                         
-                          <h3><span className='sideHeading'>CATEGORY:</span> {item.category}</h3>
-                      
-                          <h6><span className='sideHeading'>DATE & TIME:</span>  {card.time}</h6>
-                       </span>
+                        <div key={item.id} className="flex history">
+                          {console.log(item.videoLink)}
 
-                      </div>
+                          <Video srcLink={item.videoLink} id={card.id} width={350} height={200} />
+                          <span className='videoTextInfo'>
+
+                            <h3><span className='sideHeading'>NAME:</span> {item.name}</h3>
+
+
+                            <h3><span className='sideHeading'>CATEGORY:</span> {item.category}</h3>
+
+                            <h6><span className='sideHeading'>DATE & TIME:</span>  {card.time}</h6>
+                          </span>
+
+                        </div>
                       </>
-                  )
-                }
-                return null;
-              })
-            }
-          
-                  
-          </div>
-        )
-      })}
+                    )
+                  }
+                  return null;
+                })
+              }
+
+
+            </div>
+          )
+        })}
       </div>
-      </>
+    </>
   )
 }
 
