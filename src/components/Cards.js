@@ -6,11 +6,6 @@ import NewCard from './NewCard';
 import Card from './Card';
 import Navabr from './Navabr'
 const Cards = () => {
-    let config = {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        }
-    }
 
         
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -57,19 +52,19 @@ const Cards = () => {
     let [videoLink, setVideoLink] = useState(null);
     
     const apiCall = () => {
-        axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/Data',config).then(response => {
+        axios.get('https://stacker-backend010.herokuapp.com/Data').then(response => {
             setData(response.data);
         }).catch(error => { console.log(error) });
     }
 
     useEffect(() => {
         apiCall();
-    }, submitTheForm );
+    }, []);
 
 
     function deleteCard(id) {
 
-        axios.delete(`https://api.npoint.io/baf4bcf9eb8946410e5e/Data/${id}`).then(response => {
+        axios.delete(`https://stacker-backend010.herokuapp.com/Data/${id}`).then(response => {
             apiCall();
         }).catch(error => { console.log(error) });
           
@@ -79,7 +74,7 @@ const Cards = () => {
        
             e.preventDefault();
         
-        let url = 'https://api.npoint.io/baf4bcf9eb8946410e5e/Data';
+        let url = 'https://stacker-backend010.herokuapp.com/Data';
             let formData = {
                 id,
                 name,
@@ -106,7 +101,7 @@ const Cards = () => {
         
         // get axios request and filter the data using linkName
 
-        axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/Data',config)
+        axios.get('https://stacker-backend010.herokuapp.com/Data')
             .then(response => {
                 let v;
                 v = (response.data).filter(item => item.category == linkName)
@@ -117,7 +112,7 @@ const Cards = () => {
     }
     function allCards(BrandName) {
         
-        axios.get('https://api.npoint.io/baf4bcf9eb8946410e5e/Data',config)
+        axios.get('https://stacker-backend010.herokuapp.com/Data')
             .then(response => {
                 setData(response.data);
             }).catch(error => { console.log(error) });
